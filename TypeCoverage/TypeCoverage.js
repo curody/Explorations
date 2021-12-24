@@ -43,19 +43,11 @@
     if (n < 0) return 0;
     
     const fact = (acc, m) => {
-<<<<<<< HEAD
       if (m < 2) return acc;
       return fact(acc * m, m-1);
     };
 
     return fact(1, n);
-=======
-      if (m < 2) return 1;
-      return fact(acc * m, m-1);
-    };
-
-    return fact(0, n);
->>>>>>> origin/main
   }
 
   // Calculate number of combinations from nCr
