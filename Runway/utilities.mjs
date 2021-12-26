@@ -1,0 +1,1 @@
+export const getProperty = object => key => object[key];
