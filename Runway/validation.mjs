@@ -1,15 +1,12 @@
 export class ArgumentError extends Error {
   constructor(message) {
-    super(`ArgumentError: ${message}`);
+    super(message);
     this.name = this.constructor.name;
   }
 }
 
 export class ValidateResult {
-  constructor(success, err) {
-    this.success = success;
-    this.err = err;
-  }
+  constructor(success, err) { this.success = success; this.err = err; }
 }
 
 export class Validation {
@@ -17,7 +14,7 @@ export class Validation {
     a >= l,
     `Must be at least ${l}`);
   static IsNotNegative = a => new ValidateResult(
-    this.IsAtLeast(0).success,
+    this.IsAtLeast(0),
     "Must not be negative");
   static IsNumber = a => new ValidateResult( 
     !isNaN(a),
@@ -31,10 +28,7 @@ export class Validation {
     if (!rF.success) return rF;
     let rG = g(a);
     if (!rG.success) return rG;
-    return new ValidateResult(
-      true,
-      ""
-    );
+    return new ValidateResult(true, "");
   }
 
   static ValidateOrError = test => a => {
@@ -44,7 +38,7 @@ export class Validation {
   }
 
   static RunIfValid = f => validator => a => {
-    this.ValidateOrError(validator(a))
+    this.ValidateOrError(validator)(a);
     return f(a);
   }
 }
