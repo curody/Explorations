@@ -1,5 +1,5 @@
 import { Time } from './time.mjs';
-import * as Utils from './utilities.mjs';
+import { getProperty } from './utilities.mjs';
 import { Validation } from './validation.mjs';
 
 export class Runway {
@@ -59,7 +59,7 @@ export class Runway {
     let p = parseNonNegativeNum(prncpl);
     let s = parseNonNegativeNum(stop);
 
-    const parseCalcByTime = Validation.RunIfValid(Utils.getProperty(this.timeCalcs))(Validation.HasKey(this.timeCalcs));
+    const parseCalcByTime = Validation.RunIfValid(getProperty(this.timeCalcs))(Validation.HasKey(this.timeCalcs));
     let c = parseCalcByTime(timeUnit)();
 
     return this.calcRunwaySteps(p, c.ex(epy), c.nf(ipy), s);
