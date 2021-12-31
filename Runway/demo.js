@@ -1,7 +1,7 @@
 import { Runway } from './runway.mjs';
 
 /**
- * Command-line demo using node.js.
+ * Command-line demo for node.js.
  * 
  * @example <caption>Calculate time elapsed with yearly inflation at 2%, yearly withdrawal rate of 25k, initial balance of 100k, and ending balance of 10k</caption>
  * node .\demo.js -0.02 25000 100000 10000
